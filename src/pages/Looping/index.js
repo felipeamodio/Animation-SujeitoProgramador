@@ -8,8 +8,31 @@ export default function Looping(){
     const opacidadeAnimada = useRef(new Animated.Value(1)).current;
 
     
+    // useEffect(() => {
+    //     Animated.loop(
+    //         Animated.timing(larguraAnimada,{
+    //             toValue: 300,
+    //             duration: 2000,
+    //             useNativeDriver: false
+    //         })
+    //     ).start();
+    // }, []);
+
     useEffect(() => {
-        
+        Animated.loop(
+            Animated.sequence([
+                Animated.timing(larguraAnimada,{
+                    toValue: 300,
+                    duration: 2000,
+                    useNativeDriver: false
+                }),
+                Animated.timing(larguraAnimada,{
+                    toValue: 150,
+                    duration: 2000,
+                    useNativeDriver: false
+                })
+            ])
+        ).start();
     }, []);
 
     return(
@@ -20,7 +43,6 @@ export default function Looping(){
           backgroundColor: '#4169E1',
           justifyContent: 'center',
           borderRadius: 8,
-          opacity: opacidadeAnimada
       }}>
           <Text style={{textAlign: 'center', fontSize: 22, color: '#FFFFFF', fontWeight: '700'}}>Carregando...</Text>
       </Animated.View>
