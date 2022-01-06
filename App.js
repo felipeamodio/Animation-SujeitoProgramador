@@ -1,10 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native';
 import Main from './src/pages/Main';
+import Looping from './src/pages/Looping';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Main />
+      {
+        //<Main />
+      }
+      <Looping />
     </View>
   );
 }
